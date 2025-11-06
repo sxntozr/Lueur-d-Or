@@ -1,0 +1,141 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+  margin: 30px auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 25px;
+}
+
+.topo .voltar {
+  font-size: 24px;
+  color: #b87575;
+  cursor: pointer;
+}
+
+.topo h1 {
+  font-family: 'Ledger', sans-serif;
+  font-size: 28px;
+  color: #b87575;
+  font-weight: 600;
+}
+
+.produtos {
+  padding: 20px;
+}
+
+.produto {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.produto input[type="checkbox"] {
+  accent-color: #b87575;
+  width: 20px;
+  height: 20px;
+  margin-top: 35px;
+}
+
+.produto:nth-child(1) img {
+  background-image: url("c:\Users\a95723773\Documents\Lueur D'or\imagem.vestidorosalindo.png"); /* imagem do vestido rosado */
+}
+
+.produto:nth-child(2) img {
+  background-image: url("c:\Users\a95723773\Documents\Lueur D'or\imagem.vestidolurex.jpg"); /* imagem do vestido branco */
+}
+
+.produto img {
+  width: 110px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 25px;
+  margin: 0 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: none;
+}
+
+.info {
+  flex: 1;
+}
+
+.nome {
+  font-weight: 500;
+  margin: 0;
+}
+
+.descricao {
+  color: #000;
+  font-size: 14px;
+}
+
+.preco {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px 0;
+  color: #000
+}
+
+.quantidade {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantidade button {
+  border: 1px solid #aaa;
+  background: #fff;
+  border-radius: 8px;
+  width: 25px;
+  height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.resumo {
+  background: #dfb7b8;
+  color: white;
+  padding-top: 15px;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+}
+
+.detalhes {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
+}
+
+.linha {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.subtotal {
+  background: #f5caca;
+  color: black;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+}
