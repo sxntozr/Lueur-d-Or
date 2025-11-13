@@ -1,141 +1,290 @@
+/* Variáveis CSS */
+:root {
+    --primary-color: #C28B8B; /* Um rosa/vinho suave */
+    --secondary-color: #F2D8D8; /* Um rosa mais claro */
+    --text-dark: #333;
+    --text-light: #f8f8f8;
+    --border-color: #eee;
+    --button-bg-light: #f0f0f0;
+    --button-bg-dark: #555;
+    --finalizar-btn-bg: #4CAF50; /* Verde */
+    --finalizar-btn-hover: #45a049;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
 .container {
-  width: 90%;
-  max-width: 900px;
-  margin: 30px auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 900px;
+    margin: 20px auto;
+    background-color: var(--text-light);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Para garantir que o border-radius funcione */
 }
 
+/* Header */
 .topo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .topo .voltar {
-  font-size: 24px;
-  color: #b87575;
-  cursor: pointer;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-right: 15px;
+    font-weight: bold;
 }
 
 .topo h1 {
-  font-family: 'Ledger', sans-serif;
-  font-size: 28px;
-  color: #b87575;
-  font-weight: 600;
+    font-size: 1.8rem;
+    font-weight: 500;
+    flex-grow: 1; /* Para centralizar o título */
+    text-align: center;
+    transform: translateX(-15px); /* Ajuste para o 'voltar' */
 }
 
+/* Produtos */
 .produtos {
-  padding: 20px;
+    padding: 20px;
 }
 
 .produto {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.produto:last-child {
+    border-bottom: none; /* Remove a borda do último produto */
 }
 
 .produto input[type="checkbox"] {
-  accent-color: #b87575;
-  width: 20px;
-  height: 20px;
-  margin-top: 35px;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Impede que o checkbox encolha */
 }
 
-.produto:nth-child(1) img {
-  background-image: url("c:\Users\a95723773\Documents\Lueur D'or\imagem.vestidorosalindo.png"); /* imagem do vestido rosado */
+.produto input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
 }
 
-.produto:nth-child(2) img {
-  background-image: url("c:\Users\a95723773\Documents\Lueur D'or\imagem.vestidolurex.jpg"); /* imagem do vestido branco */
+.produto input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: var(--text-light);
+    font-size: 14px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 .produto img {
-  width: 110px;
-  height: 130px;
-  object-fit: cover;
-  border-radius: 25px;
-  margin: 0 20px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: none;
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
 }
 
-.info {
-  flex: 1;
+.produto .info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.nome {
-  font-weight: 500;
-  margin: 0;
+.produto .nome {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
-.descricao {
-  color: #000;
-  font-size: 14px;
+.produto .descricao {
+    font-size: 0.9rem;
+    color: var(--text-dark);
 }
 
-.preco {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 5px 0;
-  color: #000
+.produto .preco-item {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 10px;
 }
 
-.quantidade {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.produto .quantidade {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
 }
 
-.quantidade button {
-  border: 1px solid #aaa;
-  background: #fff;
-  border-radius: 8px;
-  width: 25px;
-  height: 25px;
-  font-size: 14px;
-  cursor: pointer;
+.produto .quantidade button {
+    background-color: var(--button-bg-light);
+    border: 1px solid var(--border-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
+.produto .quantidade button:hover {
+    background-color: #ddd;
+}
+
+.produto .quantidade .quantidade-valor {
+    margin: 0 10px;
+    font-size: 1.1rem;
+    min-width: 25px; /* Garante que o número não se desloque muito */
+    text-align: center;
+}
+
+/* Resumo (Footer do Carrinho) */
 .resumo {
-  background: #dfb7b8;
-  color: white;
-  padding-top: 15px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--text-light); /* Para destacar do fundo do container */
 }
 
-.detalhes {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 25px;
+.resumo .detalhes {
+    margin-bottom: 15px;
 }
 
-.linha {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 8px;
+.resumo .linha {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
 }
 
-.subtotal {
-  background: #f5caca;
-  color: black;
-  font-weight: bold;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 25px;
+.resumo .linha span:first-child {
+    color: var(--text-dark);
+}
+
+.resumo .linha span:last-child {
+    font-weight: 500;
+}
+
+.resumo .subtotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.resumo .subtotal span:nth-child(2) { /* O símbolo de igual */
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: var(--text-dark);
+}
+
+.finalizar-compra {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: var(--finalizar-btn-bg);
+    color: var(--text-light);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.finalizar-compra:hover {
+    background-color: var(--finalizar-btn-hover);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .topo h1 {
+        font-size: 1.5rem;
+    }
+
+    .produto {
+        flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .produto img {
+        width: 100px;
+        height: 120px;
+    }
+
+    .produto .info {
+        flex-basis: 100%; /* Ocupa toda a largura */
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .produto input[type="checkbox"] {
+        order: -1; /* Coloca o checkbox antes de tudo */
+        margin-right: auto;
+        margin-left: 0;
+    }
+
+    .produto .preco-item {
+        margin-top: 5px;
+    }
+    
+    .produto .quantidade {
+        margin-top: 10px;
+    }
+
+    .resumo .subtotal {
+        font-size: 1.2rem;
+    }
+
+    .finalizar-compra {
+        font-size: 1rem;
+        padding: 12px;
+    }
 }

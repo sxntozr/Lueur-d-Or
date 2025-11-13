@@ -1,0 +1,277 @@
+/* Variáveis CSS */
+:root {
+    --bg-color-page: #f8f8f8;
+    --container-bg: #fff;
+    --header-border: #f1f1f1;
+    --primary-color-favoritos: #C98580; /* Um rosa/vinho suave para o tema */
+    --secondary-text-color: #333;
+    --tertiary-text-color: #777;
+    --product-border: #f2f2f2;
+    --resumo-bg-favoritos: #dfb7b8; /* Cor de fundo do resumo */
+    --resumo-text-color: white;
+    --subtotal-bg-favoritos: #f5caca; /* Cor de fundo do subtotal */
+    --subtotal-text-color: black;
+    --btn-remove-color: #dc3545; /* Vermelho para remover */
+    --btn-add-all-bg: #28a745; /* Verde para adicionar ao carrinho */
+    --btn-add-all-hover: #218838;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Substituí por Poppins, se não tiver, ajusta */
+    background-color: var(--bg-color-page);
+    color: var(--secondary-text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh; /* Para garantir que o rodapé fique no final em telas pequenas */
+    align-items: flex-start; /* Alinha o container ao topo */
+}
+
+.container {
+    background-color: var(--container-bg);
+    width: 90%;
+    max-width: 750px;
+    margin: 50px auto; /* Centraliza vertical e horizontalmente */
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    display: flex; /* Para organizar o header, produtos e footer */
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+.header-favoritos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 25px;
+    background-color: var(--container-bg);
+    border-bottom: 1px solid var(--header-border);
+}
+
+.header-favoritos h2 {
+    font-weight: 500;
+    color: var(--primary-color-favoritos);
+    margin: 0;
+    font-size: 20px;
+    flex-grow: 1; /* Permite que o título ocupe o espaço */
+    text-align: center; /* Centraliza o título */
+}
+
+.header-favoritos .back-arrow {
+    font-size: 20px;
+    color: var(--primary-color-favoritos);
+    cursor: pointer;
+    padding-right: 15px; /* Espaço entre a seta e o título */
+}
+
+.header-favoritos .cart-icon-link i {
+    font-size: 20px;
+    color: var(--primary-color-favoritos);
+    cursor: pointer;
+    padding-left: 15px; /* Espaço entre o título e o carrinho */
+}
+
+
+/* Produtos */
+.produtos-favoritos {
+    padding: 0 25px; /* Ajustei o padding para ficar mais compacto */
+    flex-grow: 1; /* Permite que a lista de produtos ocupe o espaço disponível */
+}
+
+.produto-favorito {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--product-border);
+}
+
+.produto-favorito:last-child {
+    border-bottom: none; /* Remove a borda do último produto */
+}
+
+.produto-favorito img {
+    width: 80px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+.produto-info {
+    flex: 1;
+}
+
+.produto-info h3 {
+    font-size: 15px;
+    color: var(--secondary-text-color);
+    margin: 0 0 4px;
+    font-weight: 500;
+}
+
+.produto-info p {
+    font-size: 13px;
+    color: var(--tertiary-text-color);
+    margin: 0 0 6px;
+}
+
+.produto-info .preco-item-favorito {
+    font-size: 15px;
+    color: var(--primary-color-favoritos);
+    font-weight: 600;
+}
+
+.remover-favorito {
+    background: none;
+    border: none;
+    color: var(--btn-remove-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 5px; /* Aumenta a área de clique */
+}
+
+.remover-favorito:hover {
+    color: #a71d2a; /* Um tom mais escuro de vermelho */
+}
+
+/* Rodapé resumo */
+.resumo-favoritos {
+    background: var(--resumo-bg-favoritos);
+    color: var(--resumo-text-color);
+    padding: 15px 25px 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: auto; /* Empurra o footer para o final do container */
+}
+
+.resumo-favoritos .detalhes {
+    padding: 10px 0;
+}
+
+.resumo-favoritos .linha {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.resumo-favoritos .subtotal-favoritos {
+    background: var(--subtotal-bg-favoritos);
+    color: var(--subtotal-text-color);
+    font-weight: bold;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px; /* Cantos arredondados para o subtotal */
+    margin-top: 15px; /* Espaçamento do detalhes */
+}
+
+.resumo-favoritos .subtotal-favoritos span:nth-child(2) { /* O símbolo de igual */
+    font-size: 18px;
+    font-weight: normal;
+    color: var(--secondary-text-color);
+}
+
+.add-todos-carrinho {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    background-color: var(--btn-add-all-bg);
+    color: var(--resumo-text-color);
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-todos-carrinho:hover {
+    background-color: var(--btn-add-all-hover);
+}
+
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .container {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        width: 100%;
+    }
+
+    .header-favoritos {
+        padding: 15px 15px;
+    }
+
+    .header-favoritos h2 {
+        font-size: 18px;
+    }
+
+    .header-favoritos .back-arrow i,
+    .header-favoritos .cart-icon-link i {
+        font-size: 18px;
+    }
+
+    .produtos-favoritos {
+        padding: 0 15px;
+    }
+
+    .produto-favorito {
+        flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+        justify-content: center;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .produto-favorito img {
+        width: 90px;
+        height: 110px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .produto-info {
+        flex-basis: 100%; /* Ocupa toda a largura */
+        order: 1; /* Para aparecer depois da imagem */
+    }
+
+    .remover-favorito {
+        position: absolute; /* Posiciona o botão de remover */
+        top: 10px;
+        right: 10px;
+        font-size: 1rem;
+    }
+
+    .resumo-favoritos {
+        padding: 15px 15px 20px;
+    }
+
+    .resumo-favoritos .linha,
+    .resumo-favoritos .subtotal-favoritos {
+        font-size: 14px;
+    }
+
+    .resumo-favoritos .subtotal-favoritos span:nth-child(2) {
+        font-size: 1rem;
+    }
+
+    .add-todos-carrinho {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}

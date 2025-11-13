@@ -1,158 +1,696 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@300;400;500;600&display=swap');
+/* Variáveis CSS */
+:root {
+    --dark-pink: #C28B8B; /* Cor do topo original */
+    --light-pink: #F2D8D8; /* Cor do cabeçalho principal original */
+    --text-dark: #333;
+    --text-light: #fff;
+    --placeholder-color: #888;
 
-.topo1 {
-    background-color: #C98580;
+    /* Novas cores para a seção de produtos e rodapé */
+    --product-section-bg: rgb(196, 150, 142); /* Cor de fundo principal da seção de produtos */
+    --card-bg-color: #ffffff;
+    --footer-bg-color: #333;
+    --footer-text-color: #f8f8f8;
+    --heart-icon-color: #ccc;
+    --heart-icon-filled-color: #ff69b4; /* Rosa */
 
+    /* Cores do carrossel */
+    --carousel-arrow-bg: rgba(0, 0, 0, 0.5);
+    --carousel-arrow-color: white;
+    --carousel-dot-color: rgba(255, 255, 255, 0.5);
+    --carousel-dot-active-color: white;
 }
 
-.titulo2 {
-    display: flex;
-}
-
-.topo2 {
-    background-color: #dfb7b8;
-    margin: -16px 0px 0px 0px;
-}
-
-.titulo {
-    font-family: 'Poiret One', sans-serif;
-    font-size: 50px;
-    font-weight: 400;
-    color: white;
-    letter-spacing: 1px;
-    padding-left: 15px;
-}
-
-.slogan {
-    color: white;
-    font-family: 'Poiret One', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    padding: 0px 0px 0px 530px;
-}
-
-input {
-    background-color: white;
-    border: none;
-    outline: none;
-    width: 250px;
-    border-radius: 10px;
-    padding: 5px;
-}
-
-.hifen {
-    font-size: 20px;
-    color: white;
-    margin: 45px;
+/* Estilos Globais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background-color: #fff;
-  color: #222;
+    /* Fontes do Google Fonts, agora no HTML */
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
 }
 
-/* --- Banner --- */
-.banner {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-.banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: brightness(60%);
+/* Top Bar - Recorte do banner original */
+.top-bar {
+    background-color: var(--dark-pink);
+    color: var(--text-light);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
 }
 
-.banner-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  text-align: center;
+.top-bar .brand-name {
+    font-family: 'Lora', serif;
+    font-size: 1.2em;
+    font-weight: 500;
 }
 
-.banner-text h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 52px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin: 0;
+.top-bar .tagline {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 0.85em;
+    font-style: italic;
+    font-weight: 300;
 }
 
-.banner-text p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  margin-top: 8px;
+/* Main Header - Recorte do banner original */
+.main-header {
+    background-color: var(--light-pink);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Espaçamento entre os elementos */
+    position: sticky; /* Mantém o header fixo no topo ao rolar */
+    top: 0;
+    z-index: 1000;
 }
 
-/* --- Destaques --- */
-.destaques {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 40px 0;
+.main-header .search-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--card-bg-color); /* Fundo branco para pesquisa */
+    border-radius: 20px;
+    padding: 8px 15px;
+    flex-grow: 1; /* Permite que ocupe o espaço disponível */
+    max-width: 500px; /* Limita a largura */
 }
 
-.destaques .imagem img {
-  width: 250px;
-  height: 350px;
-  object-fit: cover;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+.main-header .search-container .search-icon {
+    color: var(--placeholder-color);
+    margin-right: 10px;
 }
 
-.destaques .imagem img:hover {
-  transform: scale(1.03);
+.main-header .search-container input {
+    border: none;
+    outline: none;
+    background: transparent;
+    flex-grow: 1;
+    font-size: 1em;
+    color: var(--text-dark);
 }
 
-/* --- Produtos --- */
-.produtos {
-  background-color: #c17b6b;
-  padding: 40px 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
+.main-header .search-container input::placeholder {
+    color: var(--placeholder-color);
+    font-family: 'Open Sans', sans-serif;
 }
 
-.produto {
-  background-color: #fff;
-  border-radius: 10px;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.main-header .nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
 }
 
-.produto:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+.main-header .nav-menu li a {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
 }
 
-.produto img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 6px;
+.main-header .nav-menu li a:hover {
+    color: var(--dark-pink);
 }
 
-.produto p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 14px;
-  margin: 8px 0;
-  color: #333;
-  line-height: 1.4;
+.header-icons {
+    display: flex;
+    gap: 15px;
 }
 
-.produto span {
-  font-weight: 500;
-  color: #000;
-  font-size: 15px;
+.header-icons a {
+    color: var(--text-dark);
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.header-icons a:hover {
+    color: var(--dark-pink);
+}
+
+/* Menu Hamburguer (para mobile) */
+.hamburger-menu {
+    display: none; /* Escondido por padrão em telas maiores */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.3rem;
+    padding: 0.5rem; /* Aumenta a área de clique */
+    width: 35px; /* Para as barras não ficarem muito finas */
+    height: 25px; /* Para as barras não ficarem muito próximas */
+    justify-content: space-around;
+}
+
+.hamburger-menu .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+/* --- Estilos do Carrossel (antiga Hero Section) --- */
+.hero-carousel {
+    position: relative;
+    width: 100%;
+    height: 80vh; /* Altura do carrossel */
+    overflow: hidden;
+    margin-bottom: 2rem; /* Espaço abaixo do carrossel */
+}
+
+.carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Transição de fade */
+    display: flex; /* Para centralizar o conteúdo do hero */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--text-light);
+    z-index: 0; /* Garante que slides não ativos fiquem por baixo */
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 1; /* Slide ativo fica por cima */
+}
+
+.carousel-slide::before { /* Overlay para melhorar o contraste do texto */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 0; /* Abaixo do hero-content */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2; /* Acima do overlay */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.hero-content h1 {
+    font-family: 'Lora', serif;
+    font-size: 5em;
+    margin-bottom: 15px;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+}
+
+.hero-content p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5em;
+    font-style: italic;
+    font-weight: 300;
+}
+
+/* Botões de navegação do carrossel */
+.carousel-prev, .carousel-next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: var(--carousel-arrow-color);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: var(--carousel-arrow-bg);
+    border: none;
+    z-index: 10;
+}
+
+.carousel-next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.carousel-prev {
+    left: 0;
+}
+
+.carousel-prev:hover, .carousel-next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Dots de navegação do carrossel */
+.carousel-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 2px;
+    background-color: var(--carousel-dot-color);
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: var(--carousel-dot-active-color);
+}
+
+
+/* Seção de Produtos */
+.products-section {
+    padding: 3rem 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--product-section-bg); /* Fundo da seção de produtos */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--footer-text-color); /* Cor branca para o título, para contrastar */
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Layout responsivo com CSS Grid */
+    gap: 2rem;
+}
+
+.product-card {
+    background-color: var(--card-bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column; /* Para empilhar imagem e info */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 350px; /* Altura fixa para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra a área sem distorcer */
+    display: block;
+}
+
+.product-info {
+    padding: 1rem;
+    flex-grow: 1; /* Garante que o bloco de informações ocupe o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para empurrar preço/favorito para baixo */
+}
+
+.product-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    min-height: 3em; /* Garante que o nome do produto tenha altura mínima para não pular o layout */
+    display: -webkit-box; /* Para limitar a quantidade de linhas */
+    -webkit-line-clamp: 2; /* Limita a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.price-favorite {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem; /* Espaço entre nome e preço/favorito */
+}
+
+.product-price {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--text-dark);
+}
+
+.favorite-icon {
+    cursor: pointer;
+    color: var(--heart-icon-color);
+    font-size: 1.5rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+    transform: scale(1.1);
+}
+
+.favorite-icon.active {
+    color: var(--heart-icon-filled-color); /* Cor rosa quando ativo */
+}
+
+/* Rodapé */
+.footer {
+    background-color: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 3rem 2rem;
+    font-size: 0.9rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as seções quebrem linha */
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; /* Espaçamento entre as seções do rodapé */
+}
+
+.footer-section {
+    flex: 1 1 200px; /* Permite que as seções do rodapé se ajustem */
+    margin-bottom: 1rem;
+    min-width: 150px; /* Garante que não fiquem muito estreitas */
+}
+
+.footer-section h4 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-bg-color); /* Usa a cor principal para destacar títulos */
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: var(--footer-text-color);
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-bg-color);
+}
+
+.social-icons a {
+    color: var(--footer-text-color);
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-bg-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.8rem;
+}
+
+/* Responsividade Geral */
+@media (max-width: 768px) {
+    /* Top Bar */
+    .top-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 5px;
+        padding: 8px 15px;
+    }
+    .top-bar .tagline {
+        font-size: 0.75em;
+    }
+
+    /* Main Header */
+    .main-header {
+        flex-wrap: wrap; /* Permite que os itens quebrem linha */
+        justify-content: center; /* Centraliza itens */
+        padding: 10px 15px;
+        gap: 10px;
+    }
+    .main-header .search-container {
+        order: 3; /* Coloca a pesquisa por último */
+        width: 100%;
+        max-width: none; /* Ocupa toda a largura disponível */
+    }
+    .main-header .nav-menu {
+        display: none; /* Esconde o menu normal */
+        flex-direction: column;
+        position: absolute;
+        top: 130px; /* Ajuste para ficar abaixo do header e da barra de pesquisa */
+        left: 0;
+        width: 100%;
+        background-color: var(--light-pink);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+        text-align: center;
+        border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    .main-header .nav-menu.active {
+        display: flex; /* Mostra o menu quando ativo */
+    }
+    .main-header .nav-menu li {
+        padding: 0.8rem 0;
+    }
+    .main-header .hamburger-menu {
+        display: flex; /* Mostra o ícone hambúrguer */
+        order: 1; /* Coloca o hambúrguer no início */
+    }
+    .main-header .header-icons {
+        order: 2; /* Coloca os ícones à direita do hambúrguer */
+        margin-left: auto; /* Empurra para a direita */
+    }
+    /* Animação do hamburguer ao abrir/fechar */
+    .hamburger-menu.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger-menu.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger-menu.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Hero Carousel */
+    .hero-content h1 {
+        font-size: 3.5em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+
+    /* Rodapé */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-section {
+        margin-bottom: 2rem;
+    }
+    .social-icons {
+        margin-top: 1rem;
+    }
+    .social-icons a {
+        margin: 0 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-bar .brand-name {
+        font-size: 1em;
+    }
+    .top-bar .tagline {
+        display: none; /* Oculta a tagline em telas muito pequenas para economizar espaço */
+    }
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1em;
+    }
+
+    .carousel-prev, .carousel-next {
+        padding: 10px;
+        font-size: 14px;
+        margin-top: -15px;
+    }
+
+    .carousel-dots {
+        bottom: 10px;
+        gap: 5px;
+    }
+
+    .dot {
+        height: 8px;
+        width: 8px;
+    }
+}
+
+
+/* --- Estilos para as Páginas de Conteúdo (Trocas, FAQ, etc.) --- */
+/* (Manter os estilos que já tinha para as páginas de conteúdo aqui) */
+.page-content {
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg-color); /* Fundo branco para o conteúdo */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.page-title {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+}
+
+.policy-section h3, .faq-section h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    border-left: 4px solid var(--dark-pink);
+    padding-left: 10px;
+}
+
+.policy-section h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.policy-section p, .faq-section p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    color: var(--light-text-color);
+}
+
+.policy-section ul {
+    list-style: disc;
+    margin-left: 25px;
+    margin-bottom: 1.5rem;
+    color: var(--light-text-color);
+}
+
+.policy-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.policy-section a, .faq-section a {
+    color: var(--dark-pink);
+    text-decoration: underline;
+}
+.policy-section a:hover, .faq-section a:hover {
+    color: var(--primary-bg-color);
+}
+
+/* --- Estilos para FAQ (Accordion) --- */
+.faq-item {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.faq-question {
+    background-color: transparent;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    text-align: left;
+    padding: 15px 0;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question:hover {
+    color: var(--dark-pink);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 15px 15px 0;
+    background-color: var(--card-bg-color);
+    overflow: hidden;
+    max-height: 0; /* Começa escondido */
+    transition: max-height 0.3s ease-out;
+    color: var(--light-text-color);
+}
+
+.faq-answer.active {
+    max-height: 200px; /* Altura máxima para mostrar, ajuste conforme necessário */
+    transition: max-height 0.5s ease-in;
+}
+
+/* Responsividade para as novas páginas */
+@media (max-width: 768px) {
+    .page-content {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
+    }
+    .page-title {
+        font-size: 2rem;
+    }
+    .policy-section h3, .faq-section h3 {
+        font-size: 1.3rem;
+    }
+    .policy-section h4 {
+        font-size: 1.1rem;
+    }
+    .faq-question {
+        font-size: 1rem;
+    }
 }

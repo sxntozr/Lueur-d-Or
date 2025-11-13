@@ -1,190 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Favoritos</title>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8f8f8;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            background-color: #fff;
-            width: 90%;
-            max-width: 750px;
-            margin-top: 50px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-        }
-
-        /* Cabeçalho */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 18px 25px;
-            background-color: #fff;
-            border-bottom: 1px solid #f1f1f1;
-        }
-
-        .header h2 {
-            font-weight: 500;
-            color: #C98580;
-            margin: 0;
-            font-size: 20px;
-        }
-
-        .header i {
-            font-size: 20px;
-            color: #C98580;
-            cursor: pointer;
-        }
-
-        /* Produtos */
-        .produto {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 20px 25px;
-            border-bottom: 1px solid #f2f2f2;
-        }
-
-        .produto img {
-            width: 80px;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .produto-info {
-            flex: 1;
-        }
-
-        .produto-info h3 {
-            font-size: 15px;
-            color: #333;
-            margin: 0 0 4px;
-            font-weight: 500;
-        }
-
-        .produto-info p {
-            font-size: 13px;
-            color: #777;
-            margin: 0 0 6px;
-        }
-
-        .produto-info span {
-            font-size: 15px;
-            color: #C98580;
-            font-weight: 600;
-        }
-
-        /* Rodapé resumo */
-        .resumo {
-            background: #dfb7b8;
-            color: white;
-            padding-top: 15px;
-            border-top-left-radius: 25px;
-            border-top-right-radius: 25px;
-        }
-
-        .detalhes {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px 25px;
-        }
-
-        .linha {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 8px;
-        }
-
-        .subtotal {
-            background: #f5caca;
-            color: black;
-            font-weight: bold;
-            font-size: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 25px;
-        }
-
-        @media (max-width: 500px) {
-            .produto {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .produto img {
-                width: 100%;
-                height: auto;
-            }
-
-            .resumo,
-            .total {
-                font-size: 14px;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+    <title>Meus Favoritos - Lueur D'or</title>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link para o seu arquivo CSS -->
+    <link rel="stylesheet" href="favoritos.css">
 </head>
-
 <body>
 
     <div class="container">
-        <div class="header">
-            <h2>Favoritos</h2>
-            <i>🛒</i>
-        </div>
+        <header class="header-favoritos">
+            <span class="back-arrow" onclick="history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <h2>Meus Favoritos</h2>
+            <a href="carrinho.html" class="cart-icon-link" aria-label="Ir para o Carrinho">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </header>
 
-        <div class="produto">
-            <img src="https://dresstoshop.vtexassets.com/arquivos/ids/961452-708-1062/produto.webp" alt="Vestido Lurex Estampa Marsala">
-            <div class="produto-info">
-                <h3>Vestido Lurex Estampa Marsala</h3>
-                <p>Produzido com tecido leve e fluido</p>
-                <span>$ 89,83</span>
+        <div class="produtos-favoritos">
+            <!-- Produto Favorito 1 -->
+            <div class="produto-favorito" data-price="89.83">
+                <img src="https://dresstoshop.vtexassets.com/arquivos/ids/961452-708-1062/produto.webp" alt="Vestido Lurex Estampa Maresia">
+                <div class="produto-info">
+                    <h3>Vestido Lurex Estampa Maresia</h3>
+                    <p>Produzido com tecido leve e fluido</p>
+                    <span class="preco-item-favorito">$ 89,83</span>
+                </div>
+                <button class="remover-favorito" aria-label="Remover dos favoritos">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
-        </div>
 
-        <div class="produto">
-            <img src="https://images.tcdn.com.br/img/img_prod/1001675/saia_tela_bordada_1_20250925091333_a4ab3cb67158.jpg" alt="Saia Tule Bordada e Blusa Mesma Textura">
-            <div class="produto-info">
-                <h3>Saia Tule Bordada e Blusa Mesma Textura</h3>
-                <p>Textura com detalhe de amarração</p>
-                <span>$ 87,42</span>
+            <!-- Produto Favorito 2 -->
+            <div class="produto-favorito" data-price="87.42">
+                <img src="https://images.tcdn.com.br/img/img_prod/1001675/saia_tela_bordada_1_20250925091333_a4ab3cb67158.jpg" alt="Saia Tela Bordada e Blusa na Mesma Textura">
+                <div class="produto-info">
+                    <h3>Saia Tela Bordada e Blusa na Mesma Textura</h3>
+                    <p>com Detalhe de Amarração</p>
+                    <span class="preco-item-favorito">$ 87,42</span>
+                </div>
+                <button class="remover-favorito" aria-label="Remover dos favoritos">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </div>
+
+            <!-- Adicione mais produtos favoritos aqui, se necessário -->
         </div>
 
-        <footer class="resumo">
+        <footer class="resumo-favoritos">
             <div class="detalhes">
                 <div class="linha">
-                    <span>Itens Selecionados</span>
-                    <span>$ 177,25</span>
+                    <span>Itens Favoritados</span>
+                    <span id="itens-favoritos-valor">$ 0,00</span>
                 </div>
                 <div class="linha">
-                    <span>Taxa de Entrega</span>
-                    <span>$ 150,00</span>
+                    <span>Taxa de Entrega Estimada</span>
+                    <span id="taxa-entrega-favoritos">$ 150,00</span>
                 </div>
             </div>
-            <div class="subtotal">
-                <span>SUBTOTAL</span>
+            <div class="subtotal-favoritos">
+                <span>SUBTOTAL Estimado</span>
                 <span>=</span>
-                <span>$ 327,25</span>
+                <span id="subtotal-favoritos-valor">$ 0,00</span>
             </div>
+            <button class="add-todos-carrinho">Adicionar Todos ao Carrinho</button>
         </footer>
+    </div>
 
+    <!-- Link para o seu arquivo JavaScript -->
+    <script src="favoritos.js"></script>
 </body>
-
 </html>
