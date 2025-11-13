@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: #C98580;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Quicksand', sans-serif;
+  overflow: hidden;
+  transition: opacity 0.8s ease;
+}
+
+/* Efeito de saída suave */
+body.fade-out {
+  opacity: 0;
+}
+
+.container {
+  text-align: center;
+  position: relative;
+}
+
+.logo {
+  color: white;
+  font-size: 48px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform: translateY(100px);
+  animation: subirLogo 2s ease forwards;
+  font-family: 'Lora', serif;
+}
+
+.entrar {
+  margin-top: 40px;
+  padding: 12px 40px;
+  font-size: 18px;
+  color: #C98580;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  opacity: 0;
+  animation: aparecerBotao 2s ease forwards;
+  animation-delay: 2s;
+  transition: 0.3s;
+  font-weight: 600;
+}
+
+.entrar:hover {
+  transform: scale(1.05);
+  background-color: #f9f9f9;
+}
+
+/* --- Animações --- */
+
+@keyframes subirLogo {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-80px);
+  }
+}
+
+@keyframes aparecerBotao {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

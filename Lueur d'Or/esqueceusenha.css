@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #DFB7B8, #C98580);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  position: absolute;
+  top: 15%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-size: 42px;
+  font-weight: 400;
+}
+
+.container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 15px;
+  width: 350px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+h2 {
+  color: #C98580;
+  margin-bottom: 25px;
+}
+
+.input-field {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #C98580;
+  outline: none;
+  font-size: 15px;
+  background: transparent;
+}
+
+.icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+button {
+  background-color: #C98580;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #b46d68;
+}
+
+.links {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+a {
+  color: #C98580;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

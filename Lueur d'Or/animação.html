@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lueur d’Or - Animação</title>
+  <link rel="stylesheet" href="animação.css">
+</head>
+<body>
+  <div class="container">
+    <h1 class="logo">Lueur d’Or</h1>
+    <button class="entrar" onclick="irParaLogin()">Entrar</button>
+  </div>
+
+  <script>
+    function irParaLogin() {
+      // Adiciona o efeito de saída antes de mudar de página
+      document.body.classList.add('fade-out');
+      setTimeout(() => {
+        window.location.href = "login.html"; // Muda de página após a animação
+      }, 800);
+    }
+  </script>
+</body>
+</html>
